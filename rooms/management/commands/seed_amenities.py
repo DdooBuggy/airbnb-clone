@@ -4,12 +4,12 @@ from rooms.models import Amenity
 
 class Command(BaseCommand):
 
-    help = "This command tells me that he loves me"
+    help = "This command create many amenities"
 
     """
     def add_arguments(self, parser):
         parser.add_argument(
-            "--times", help="How many times do you want me to tell you that I love you?"
+            "--times", help="How many times"
         )
     """
 
@@ -60,4 +60,4 @@ class Command(BaseCommand):
         ]
         for a in amenities:
             Amenity.objects.create(name=a)
-        self.stdout.write(self.style.SUCCESS("Amenities created!"))
+        self.stdout.write(self.style.SUCCESS(f"{len(amenities)} Amenities created!"))
